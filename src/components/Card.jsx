@@ -10,14 +10,14 @@ function Card({ id = "null", title = "null", content = "null", category = "null"
                         src={img}
                         alt="blog Image" />
                 </div>
-                    <div className='overflow-hidden '>
+                    {/* <div className='overflow-hidden '>
                         <p
                             className="text-xs absolute top-0 right-0 min-w-[30%] max-w-[40%] bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 lg:hover:bg-white lg:hover:text-indigo-600 transition duration-500 ease-in-out">
                             <span className='  line-clamp-1 text-center'>
                                 {category || "category"}
                             </span>
                         </p>
-                    </div>
+                    </div> */}
                 </div>
                 {/*============= Blog Content =============*/}
                 <div className='flex flex-col justify-between h-[50%] mx-auto w-[92%] overflow-hidden'>
