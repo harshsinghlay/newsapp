@@ -22,7 +22,7 @@ function App() {
   return (
     <>
     <h1 className='bg-gray-600 text-white text-center py-4 mb-2'>App is Running</h1>
-      {data.length > 0 ? 
+      {data?.length > 0 ? 
       <div className='w-full h-full grid grid-cols-3 gap-4'>
       {data.map((item) => (
         <Card
