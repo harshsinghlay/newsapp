@@ -3,12 +3,14 @@
 ## Description
 Vite News WebApp is a responsive web application that allows users to read news articles and filter them by categories. It leverages Tailwind CSS for styling and Redux for state management, ensuring a smooth and efficient user experience.
 
+## Deployed Application
+The application is deployed and accessible at [https://newsapp-harshsinghlay.netlify.app/]. You can visit the deployed version to explore the features without needing to clone the repository.
+
 ## Technologies Used
 - Vite: Fast frontend build tool.
 - React: JavaScript library for building user interfaces.
 - Tailwind CSS: Utility-first CSS framework for styling.
 - Redux: State container for JavaScript apps.
-
 
 ## How to Run the Project
 
