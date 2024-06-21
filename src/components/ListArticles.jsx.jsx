@@ -37,7 +37,7 @@ function ListArticles({ toggleFilter }) {
       {/*=========== Sort By Buttons ===========*/}
       <div className="bg-gray-100 flex justify-end sm:justify-between items-center py-7 px-4 sm:px-6 font-poppins text-gray-800">
         <div className="hidden sm:block">
-          Showing {itemsOnCurrPage.length} of {articles?.length} items
+          Showing {itemsOnCurrPage.length} of {articles?.length} Articles
         </div>
         <div className="block lg:hidden">
           <button
@@ -92,7 +92,7 @@ function ListArticles({ toggleFilter }) {
       <div>
         <div className=" bg-gray-100 flex flex-col gap-3 lg:flex-row justify-between items-center py-5 px-6 font-poppins text-gray-800 text-sm text-normal sm:text-base">
           <div>
-            Showing {currentPage}-{totalPages} of {articles?.length} items
+            Showing {currentPage}-{totalPages} of {articles?.length} Articles
           </div>
           <div className="flex items-center gap-3">
             <button
