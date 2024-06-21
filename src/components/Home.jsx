@@ -24,12 +24,12 @@ function Home() {
     <section className="relative overflow-hidden pt-16">
       <div className="max-w-[91%] mx-auto grid grid-cols-12 gap-7 py-8">
         {/*============== Filter Options ==============*/}
-        <section className="hidden lg:block  col-span-2 ">
+        <section className="hidden lg:block  col-span-3 ">
           <Filter />
         </section>
 
         {/*============== News Articles ==============*/}
-        <section className="col-span-12 lg:col-span-10 ">
+        <section className="col-span-12 lg:col-span-9 ">
           <ListArticles toggleFilter={toggleFilter} />
         </section>
       </div>

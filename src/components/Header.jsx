@@ -5,7 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 function Header() {
   return (
     <div className="bg-[#102039] w-full fixed  text-lg z-10">
-      <div className="max-w-[90%] mx-auto flex items-center justify-between py-3">
+      <div className="max-w-[91%] mx-auto flex items-center justify-between py-3">
         <div>
           <Link to="/">
             <div className="w-24 sm:w-28">
