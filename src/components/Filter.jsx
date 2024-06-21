@@ -24,6 +24,8 @@ function Filter() {
         const data = await response.json();
         setCategoryOptions(data.categories);
       } catch (error) {
+        setCategoryOptions([])
+         // Error handeled by setting articles to empty array
         console.error("Error fetching categories:", error);
       }
     };
