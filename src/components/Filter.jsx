@@ -76,7 +76,7 @@ function Filter() {
                                             checked={selectedCategory === category}
                                             onChange={handleCategoryChange}
                                         />
-                                        <label htmlFor={category}>{category}</label>
+                                        <label htmlFor={category} className='select-none'>{category}</label>
                                     </li>
                                 ))}
                             </ul>

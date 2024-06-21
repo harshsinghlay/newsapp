@@ -7,12 +7,17 @@ import Layout from './Layout.jsx'
 import Article from './components/Article.jsx'
 import Home from './components/Home.jsx'
 import store from './redux/store.jsx'
+import About from './components/About.jsx'
+import Contact from './components/Contact.jsx'
+import Error from './components/Error.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout />}>
     <Route index element={<Home />} />
-    <Route path=':id' element={<Article />} />
-    <Route path='*' element={<Error />} />
+    <Route path="about" element={<About />} />
+    <Route path="contact" element={<Contact />} />
+    <Route path='article/:id' element={<Article />} />
+    <Route path="*" element={<Error />} />
   </Route>
 ))
 

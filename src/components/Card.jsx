@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import {defaultNewsPreview} from '../assets/index'
 
-const DEFAULT_PLACEHOLDER_IMAGE = 'https://euaa.europa.eu/sites/default/files/styles/width_600px/public/default_images/news-default-big.png?itok=NNXAZZTc';
-
-function Card({ title = "null", content = "null", date = "null", img = "null" }) {
-    const [imageSrc, setImageSrc] = useState(DEFAULT_PLACEHOLDER_IMAGE);
+function Card({ id = "", title = "", content = "", img = "" , category = "" }) {
+    const [imageSrc, setImageSrc] = useState(defaultNewsPreview);
     const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
         let isMounted = true; // To track if component is mounted
 
         // Reset state for new image load attempt
-        setImageSrc(DEFAULT_PLACEHOLDER_IMAGE);
+        setImageSrc(defaultNewsPreview);
         setImageLoaded(false);
 
         const imgElement = new Image();
@@ -44,24 +44,24 @@ function Card({ title = "null", content = "null", date = "null", img = "null" })
                     {!imageLoaded && (
                         <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
                     )}
-                </div>
-                {/* Blog Content */}
-                <div className='flex flex-col justify-between h-[50%] mx-auto w-[92%] overflow-hidden'>
-                    <div className="pt-4">
-                        <p className=" line-clamp-2 pb-1 font-medium text-xl lg:hover:text-indigo-600 transition duration-500 ease-in-out ">
-                            {title}
-                        </p>
-                        <p className="text-gray-500 text-md line-clamp-4">
-                            {content}
+                     <div className='overflow-hidden '>
+                        <p
+                            className="text-sm absolute top-0 right-0 min-w-[30%] max-w-[40%] bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 lg:hover:bg-white lg:hover:text-indigo-600 transition duration-500 ease-in-out">
+                            <span className='  line-clamp-1 text-center'>
+                                {category}
+                            </span>
                         </p>
                     </div>
-                    <div className="pt-3 pb-2 flex flex-row items-center justify-between">
-                        <span className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center">
-                            <span className="ml-1">{date}</span>
-                        </span>
-                        <span className="py-1 text-sm font-regular text-gray-900 mr-1 flex flex-row items-center lg:hover:text-indigo-600">
-                            <span className="ml-1">Read More.</span>
-                        </span>
+                </div>
+                {/* Blog Content */}
+                <div className='h-[50%] mx-auto w-[92%]'>
+                    <div className="pt-4 flex flex-col gap-2">
+                        <p className=" line-clamp-2 font-medium text-xl lg:hover:text-indigo-600 transition duration-500 ease-in-out ">
+                            {title}
+                        </p>
+                        <p className="text-gray-500 lg:hover:text-gray-700 text-md line-clamp-4 cursor-pointer">
+                            <Link to={`article/${id}`}>{content}</Link>
+                        </p>
                     </div>
                 </div>
             </div>
