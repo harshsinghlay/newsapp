@@ -37,7 +37,7 @@ function Home() {
             </div>
 
             {/* Filters for smaller devices */}
-            < div className={`overflow-scroll  border-y-[1px] border-gray-400  h-screen w-[80%] sm:w-[50%] md:w-[40%] bg-white px-4 pt-28 pb-14 duration-500 absolute overflow-y-auto top-0 ${showToggleFilter ? "left-0" : 'left-[-100%] '}`} >
+            < div className={`overflow-scroll  border-y-[1px] border-gray-400  h-screen w-[60%]  sm:w-[50%] md:w-[40%] bg-white px-4 pt-28 pb-14 duration-500 absolute overflow-y-auto top-0 ${showToggleFilter ? "left-0" : 'left-[-100%] '}`} >
                 <Filter />
             </div>
 
