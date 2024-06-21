@@ -56,7 +56,7 @@ function ListArticles({ toggleFilter }) {
       <div>
         {!loading ? (
           itemsOnCurrPage?.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
               {itemsOnCurrPage?.map((item) => (
                 <div
                   key={item.id}
@@ -78,7 +78,7 @@ function ListArticles({ toggleFilter }) {
             </div>
           )
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
             {Array.from({ length: 10 })?.map((item, index) => (
               <div key={index}>
                 <DummyCard />
