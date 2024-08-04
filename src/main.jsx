@@ -15,6 +15,7 @@ import store from "./redux/store.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Error from "./components/Error.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,8 +29,12 @@ const router = createBrowserRouter(
   )
 );
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={queryClient}>
   <Provider store={store}>
     <RouterProvider router={router} />
   </Provider>
+  </QueryClientProvider>
 );

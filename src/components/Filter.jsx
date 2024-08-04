@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { setArticles } from "../redux/articleSlice";
 import { useDispatch } from "react-redux";
+import useFetchNews from "../hooks/useFetchNews";
+import useFetchCategories from "../hooks/useFetchCategories";
 
 function Filter() {
   const dispatch = useDispatch();
-  const [categoryOptions, setCategoryOptions] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const apiKey = "xlQcHfAxU_JbL1qXBsEzfJM-np-Co_HJJ3u2FyqelGQJc3-M";
+
+  const { data: fetchedCategoryOptions, isError: categoriesFetchingError } =
+    useFetchCategories();
+
+  const { data: fetchedNews, isError: fetchedNewsError } =
+    useFetchNews(selectedCategory);
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -17,47 +23,12 @@ function Filter() {
   };
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      const categoriesUrl = `https://api.currentsapi.services/v1/available/categories?apiKey=${apiKey}`;
-      try {
-        const response = await fetch(categoriesUrl);
-        const data = await response.json();
-        setCategoryOptions(data.categories);
-      } catch (error) {
-        setCategoryOptions([])
-         // Error handeled by setting articles to empty array
-        console.error("Error fetching categories:", error);
-      }
-    };
-
-    fetchCategories();
-  }, [apiKey]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      let url =
-        "https://api.currentsapi.services/v1/latest-news?" +
-        "language=en&" +
-        `apiKey=${apiKey}`;
-
-      if (selectedCategory) {
-        url += `&category=${selectedCategory}`;
-      }
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        dispatch(setArticles(data?.news));
-        console.log("Response is", data?.news);
-      } catch (error) {
-        dispatch(setArticles([]));
-        // Error handeled by setting articles to empty array
-        console.error("Error fetching news:", error.message);
-      }
-    };
-
-    fetchData();
-  }, [selectedCategory, apiKey]);
+    if (fetchedNews && !fetchedNewsError) {
+      dispatch(setArticles(fetchedNews?.news));
+    } else {
+      dispatch(setArticles([]));
+    }
+  }, [fetchedNews]);
 
   return (
     <section className="">
@@ -70,21 +41,21 @@ function Filter() {
           <section className="px-4 py-3 border-b-2 border-gray-200">
             <div>
               <ul className="bg-white py-2 space-y-2">
-                {categoryOptions?.map((category, index) => (
-                  <li key={index} className="flex gap-3 items-center text-md">
-                    <input
-                      id={category}
-                      type="radio"
-                      name="category"
-                      value={category}
-                      checked={selectedCategory === category}
-                      onChange={handleCategoryChange}
-                    />
-                    <label htmlFor={category} className="select-none">
-                      {category}
-                    </label>
-                  </li>
-                ))}
+                {fetchedCategoryOptions &&
+                  !categoriesFetchingError &&
+                  fetchedCategoryOptions?.categories?.map((category, index) => (
+                    <li
+                      key={index}
+                      className={`${
+                        selectedCategory === category
+                          ? "text-orange-500"
+                          : "text-black"
+                      } flex gap-3 items-center text-lg cursor-pointer`}
+                      onClick={() => setSelectedCategory(category)}
+                    >
+                      <span>{category}</span>
+                    </li>
+                  ))}
               </ul>
             </div>
           </section>
