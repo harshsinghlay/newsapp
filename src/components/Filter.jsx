@@ -18,6 +18,11 @@ function Filter() {
     setSelectedCategory("");
   };
 
+  const capitalizeString = (string) => {
+    if (!string) return string; // Check if the string is empty or null
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   useEffect(() => {
     if (fetchedNews && !fetchedNewsError) {
       dispatch(setArticles(fetchedNews?.news));
@@ -49,7 +54,7 @@ function Filter() {
                       } flex gap-3 items-center text-lg cursor-pointer`}
                       onClick={() => setSelectedCategory(category)}
                     >
-                      <span>{category}</span>
+                      <span>{capitalizeString(category)}</span>
                     </li>
                   ))}
               </ul>
