@@ -14,10 +14,6 @@ function Filter() {
   const { data: fetchedNews, isError: fetchedNewsError } =
     useFetchNews(selectedCategory);
 
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-  };
-
   const resetFilters = () => {
     setSelectedCategory("");
   };
