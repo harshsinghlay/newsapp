@@ -17,7 +17,7 @@ The application is deployed and accessible at [https://newsapp-harshsinghlay.net
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/newsapp.git
+   git clone https://github.com/harshsinghlay/newsapp.git
    ```
 
 2. Navigate to the project directory:

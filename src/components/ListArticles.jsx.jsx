@@ -41,7 +41,7 @@ function ListArticles({ toggleFilter }) {
         </div>
         <div className="block lg:hidden">
           <button
-            className="flex items-center text-sm px-3 sm:px-5 md:text-base py-3 gap-1 sm:gap-4 rounded-full bg-gray-600 sm:font-light text-white  "
+            className="flex items-center text-sm px-3 sm:px-5 md:text-base py-3 gap-1 sm:gap-4 rounded-full bg-[#102039] sm:font-light text-white  "
             onClick={toggleFilter}
           >
             <span>
